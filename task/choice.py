@@ -1,0 +1,18 @@
+CHOICE_PROJECT_STATUS = [
+    ('COMPLETED', 'COMPLETED'),
+    ('IN-PROCESS', 'IN-PROCESS'),
+    ('ON-HOLD', 'ON-HOLD'),
+]
+
+CHOICE_TASK_STATUS = [
+    ('COMPLETED', 'COMPLETED'),
+    ('IN-PROCESS', 'IN-PROCESS'),
+    ('ON-HOLD', 'ON-HOLD'),
+    ('CANCELLED', 'CANCELLED'),
+]
+
+CHOICE_PRIORITY = [
+    ('HIGH', 'HIGH'),
+    ('MEDIUM', 'MEDIUM'),
+    ('LOW', 'LOW'),
+]

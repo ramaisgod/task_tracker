@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="card">
+<div class="test-scroll" style="position:relative;">
+    <div class="card-body p-b-0">
+        <div class="review-block">
+            {% for project in obj_project %}
+            <div class="card">
+            <div class="card-body">
+            <div class="row">
+                <div class="col">
+                    <h6 class="m-b-10">Project: {{project.project_name}}</h6>
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <div class="progress">
+                                <div class="progress-bar bg-c-green" style="width:85%"></div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <h6 class="text-muted float-right f-12">{{project.status}}</h6>
+                        </div>
+                    </div>
+                    <table class="table table-hover m-4">
+                        <thead>
+                            <tr>
+                                <th class="text-muted">TASK NAME</th>
+                                <th class="text-muted">OWNER</th>
+                                <th class="text-muted">CREATED</th>
+                                <th class="text-muted">STATUS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for task in obj_task %}
+                            {% if project.project_name == task.project_id.project_name %}
+                            <tr>
+                                <td>
+                                    <h6 class="mb-1">{{task.task_name}}</h6>
+                                    <!-- <p class="m-0"></p> -->
+                                </td>
+                                <td>
+                                    <!-- <p class="mb-1">523.423</p> -->
+                                    <span class="text-c-green m-0">{{task.task_owner}}</span>
+                                </td>
+                                <td>{{task.task_start}}</td>
+                                <td><a class="badge badge-primary f-12" href="#!">{{task.status}}</a></td>
+                            </tr> 
+                            {% else %}
+                            {% endif %}
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <!-- <p class="m-t-10 m-b-0">Hello</p> -->
+                </div>
+            </div>
+            </div>
+            </div>
+    
+            {% endfor %}
+        </div>
+    </div>
+</div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(function () {
+            // [ test-scroll ] start
+            var px = new PerfectScrollbar('.test-scroll', {
+                wheelSpeed: .5,
+                swipeEasing: 0,
+                wheelPropagation: 1,
+                minScrollbarLength: 40,
+            });
+            // [ text-scroll ] end
+        });
+    });
+</script>
+
+{% endblock %}

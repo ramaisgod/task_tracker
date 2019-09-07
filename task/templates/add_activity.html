@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<form method="POST" action="{% url 'add_activity' %}" autocomplete="off">
+    {% csrf_token %}
+            <center><strong>{{message}}</strong> </center>
+            <hr class="my-2">
+            <h3> ADD NEW ACTIVITY </h3>
+                <hr class="my-2">
+    <div class="row">
+            <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="">Task Name</label>
+                        {{form.task_id}}
+                    </div>
+                </div>
+                <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="">Status</label>
+                            {{form.status}}
+                        </div>
+                    </div>                  
+    </div>
+<div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="">Start Date</label>
+                {{form.activity_start}}
+                <small id="" class="form-text text-muted">Date Format: mm/dd/yyyy</small>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="">End Date</label>
+                {{form.activity_end}}
+                <small id="" class="form-text text-muted">Date Format: mm/dd/yyyy</small>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="row">
+        <div class="col-md-9">
+            <div class="form-group">
+                <label for="">Description</label>
+                <textarea class="form-control" id="id_description" name="description"
+                    rows="3">{{form.description.value}}</textarea>
+                <small id="help_id_description" class="form-text text-muted">Please enter task activity</small>
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">ADD ACTIVITY</button>
+</form>
+{% endblock %}

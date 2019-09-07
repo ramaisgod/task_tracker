@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<form method="POST" action="{% url 'add_project' %}" autocomplete="off">
+    {% csrf_token %}
+            <center><strong>{{message}}</strong> </center>
+            <hr class="my-2">
+            <h3> ADD NEW PROJECT </h3>
+                <hr class="my-2">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="">Project Name</label>
+                {{form.project_name}}
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="">Project Owner</label>
+                {{form.project_owner}}
+            </div>
+        </div>
+        <!-- <div class="col-md-3">
+                <div class="form-group">
+                    <label for="">Type</label>
+                    {{form.project_type}}
+                </div>
+        </div> -->
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="">Start Date</label>
+                {{form.project_start}}
+                <small id="" class="form-text text-muted">Date Format: mm/dd/yyyy</small>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="">End Date</label>
+                {{form.project_end}}
+                <small id="" class="form-text text-muted">Date Format: mm/dd/yyyy</small>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="">Location</label>
+                {{form.project_location}}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="">Priority</label>
+                {{form.priority}}
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="">Deadline Date</label>
+                {{form.deadline}}
+                <small id="" class="form-text text-muted">Date Format: mm/dd/yyyy</small>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="">Status</label>
+                {{form.status}}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-9">
+            <div class="form-group">
+                <label for="">Description</label>
+                <textarea class="form-control" id="id_description" name="description"
+                    rows="3">{{form.description.value}}</textarea>
+                <small id="help_id_description" class="form-text text-muted">Please enter project description</small>
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">ADD PROJECT</button>
+</form>
+
+{% endblock %}
+
+

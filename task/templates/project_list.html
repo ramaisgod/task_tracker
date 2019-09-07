@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+        <div class="table-responsive">
+        <div class="full-scroll" style="height:375px;position:relative;">
+        <table class="table table-hover">
+        <thead>
+        <tr>
+        <th>Project Name</th>
+        <th>Owner</th>
+        <th>Start Date</th>
+        <th>Deadline Date</th>
+        <th>Status</th>
+        <th class="text-right">Priority</th>
+        </tr></thead>
+        <tbody>
+            {% for project in obj_project %}
+                <tr>
+                <td>{{project.project_name}}</td>
+                <td>{{project.project_owner}}</td>
+                <td>{{project.project_start}}</td>
+                <td>{{project.deadline}}</td>
+                <td><a href="#!" class="badge badge-primary">{{project.status}}</a></td>
+                <td class="text-right">{{project.priority}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+        </div>
+        </div>
+        <script type="text/javascript">
+                                $(document).ready(function() {
+                                    $(function() {
+                                        // [ full-scroll ] start
+                                        var px = new PerfectScrollbar('.full-scroll', {
+                                            wheelSpeed: .5,
+                                            swipeEasing: 0,
+                                            wheelPropagation: 1,
+                                            minScrollbarLength: 40,
+                                        });
+                                        // [ full-scroll ] end
+                                    });
+                                });
+                            </script>
+
+{% endblock %}
